@@ -5,13 +5,13 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: false,
+  fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: 1,
   /* Opt out of parallel tests on CI. */
-  workers: 1,
+  workers: 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -26,7 +26,6 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-
     
     {
       name: 'chromium',
@@ -36,7 +35,19 @@ export default defineConfig({
       },
     },
 
-   /* 
+
+/*
+    {
+      name: 'Google Chrome',
+      use: { 
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        viewport: {width: 1900, height: 1080} 
+      },
+    },
+*/
+
+/*    
     {
       name: 'firefox',
       use: { 
@@ -55,14 +66,14 @@ export default defineConfig({
 */
    
     /* Test against mobile viewports. */
-    // {
+    //{
     //   name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
     // },
-    // {
+    //{
     //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    //   use: { ...devices['iPhone 15'] },
+    //},
 
     
     /* Test against branded browsers. */
@@ -74,6 +85,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
+
   ],
   
 });

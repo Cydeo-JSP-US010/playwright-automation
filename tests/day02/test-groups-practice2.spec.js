@@ -1,5 +1,5 @@
 
-import { test } from "@playwright/test";
+import { test, } from "@playwright/test";
 
 test.describe("Test Group", () => {
     test("A", async ({ page }) => {
