@@ -9,7 +9,7 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: 1,
+  retries: 0,
   /* Opt out of parallel tests on CI. */
   workers: 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -22,6 +22,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     headless: false,
+   // video: { mode: 'retain-on-failure', size: {width: 1920, height: 1080} },
   },
 
   /* Configure projects for major browsers */

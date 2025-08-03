@@ -6,7 +6,7 @@ test("Simple google test", async ({page}) => {
 
     await page.waitForTimeout(3000);
 
-    let searchBox = page.locator("textarea[id='APjFqb']");
+    let searchBox = page.locator("textarea[id='123']");  // textarea[id='APjFqb']
 
     // await searchBox.type("CYDEO");
     await searchBox.fill("CYDEO");
